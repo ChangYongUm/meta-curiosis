@@ -180,6 +180,25 @@ echo >> conf/local.conf
 echo "PACKAGE_CLASSES = \"package_deb\"" >> conf/local.conf
 echo "EXTRA_IMAGE_FEATURES += \"package-management\"" >> conf/local.conf
 
+# for build
+echo >> conf/local.conf
+echo "PARALLEL_MAKE = \"-j 16\"" >> conf/local.conf
+echo "BB_NUMBER_THREADS = \"16" >> conf/local.conf
+
+echo -e "\n# INHERIT += "rm_work"" | tee -a conf/local.conf
+echo -e "\n# RM_WORK_EXCLUDE += "rootfs"" | tee -a conf/local.conf
+
+# for buildhistory
+echo >> conf/local.conf
+echo "INHERIT += \"buildhistory\"" >> conf/local.conf
+echo "BUILDHISTORY_COMMIT += \"1" >> conf/local.conf
+
+# for SDK
+echo >> conf/local.conf
+echo "SDKMACHINE ?= \"i686-mingw32\"" >> conf/local.conf
+echo "SDK_ARCHIVE_TYPE = \"zip" >> conf/local.conf
+
+
 # for mender, note: below should really be in tn-setup-mender.sh
 if grep -q "tn-setup-mender" <<< $CALLER; then
   echo -e "\n# Setup additional mender settings in local.conf" | tee -a conf/local.conf

@@ -45,7 +45,6 @@ RDEPENDS:${PN} = " \
     ramsmp \
     read-edid \
     rsync \
-    spidev-test \
     stress-ng \
     stressapptest \
     sysbench \
