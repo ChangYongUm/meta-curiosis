@@ -1,18 +1,15 @@
 PACKAGECONFIG:append = " networkd resolved"
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
-MY_INTERFACE = "eth0"
-
 SRC_URI += " \
-    file://${MY_INTERFACE}.network \
+    file://80-wired.network \
 "
 
 FILES_${PN} += " \
-    ${sysconfdir}/systemd/network/${MY_INTERFACE}.network \
+    ${sysconfdir}/systemd/network/80-wirednetwork \
 "
 
-do_install:append() {
-    install -d ${D}${sysconfdir}/systemd/network
-    install -m 0644 ${WORKDIR}/${MY_INTERFACE}.network ${D}${sysconfdir}/systemd/network
+do_install_:ppend() {
+    install -d ${D}lib/systemd/network
+    install -m 0644 ${WORKDIR}/80-wired.network ${D}lib/systemd/network/
 }
-
