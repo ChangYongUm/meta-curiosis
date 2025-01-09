@@ -39,7 +39,7 @@ do
         echo "background-color=0xffdddddd" >> /etc/xdg/weston/weston.ini        
         echo "background-image=/etc/xdg/weston/wallpaper.png" >> /etc/xdg/weston/weston.ini        
         echo "background-type=centered" >> /etc/xdg/weston/weston.ini                        
-        sync
+        echo "syncpanel-position=none" >> /etc/xdg/weston/weston.ini             
     fi
 
   fi

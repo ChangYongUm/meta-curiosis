@@ -66,8 +66,10 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     ${G2D_SAMPLES} \
     gdb \
     gdbserver \
-    tcf-agent \
+    tcf-agent \     
 "
+
+# u-boot-fw-utils 	u-boot-splash 
 
 # Enable local auto-login of the normal user (local = serial port and
 # virtual console by default, can be configured).
